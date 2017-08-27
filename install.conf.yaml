@@ -4,6 +4,10 @@
 
 - clean: ['~']
 
+- shell:
+  - mkdir -p ~/Development ~/.bin
+  - [git submodule update --init --recursive, Installing submodules]
+  
 - link:
     ~/.dotfiles: ''
     ~/.tmux.conf: tmux.conf
@@ -16,7 +20,5 @@
     ~/.bin/viewmf: mftools/viewmf
     ~/.bin/diffmf: mftools/diffmf
     ~/.bin/jsonmf: mftools/jsonmf
-
-- shell:
-  - mkdir -p ~/Development ~/.bin
-  - [git submodule update --init --recursive, Installing submodules]
+    ~/.bin/git-open: bin/git-open
+    ~/.bin/ngrok: bin/ngrok
