@@ -7,7 +7,7 @@
 - shell:
   - mkdir -p ~/Development ~/.bin
   - [git submodule update --init --recursive, Installing submodules]
-  
+
 - link:
     ~/.dotfiles: ''
     ~/.tmux.conf: tmux.conf
@@ -22,3 +22,63 @@
     ~/.bin/jsonmf: mftools/jsonmf
     ~/.bin/git-open: bin/git-open
     ~/.bin/ngrok: bin/ngrok
+    ~/.oh-my-zsh/custom-plugins/pawel-aliases/pawel-aliases.plugin.zsh: 
+      path: shell/aliases.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-atlas/pawel-atlas.plugin.zsh: 
+      path: shell/atlas.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-docker/pawel-docker.plugin.zsh: 
+      path: shell/docker.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-git-completion/pawel-git-completion.plugin.zsh: 
+      path: shell/git-completion.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-go/pawel-go.plugin.zsh: 
+      path: shell/go.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-gpg-agent/pawel-gpg-agent.plugin.zsh: 
+      path: shell/gpg-agent.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-haskell/pawel-haskell.plugin.zsh: 
+      path: shell/haskell.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-hh/pawel-hh.plugin.zsh: 
+      path: shell/hh.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-homebrew-cask/pawel-homebrew-cask.plugin.zsh: 
+      path: shell/homebrew-cask.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-jenv/pawel-jenv.plugin.zsh: 
+      path: shell/jenv.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-jira-qa/pawel-jira-qa.plugin.zsh: 
+      path: shell/jira-qa.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-jira/pawel-jira.plugin.zsh: 
+      path: shell/jira.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-maven/pawel-maven.plugin.zsh: 
+      path: shell/maven.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-rbenv/pawel-rbenv.plugin.zsh: 
+      path: shell/rbenv.zsh
+      force: true
+      create: true
+    ~/.oh-my-zsh/custom-plugins/pawel-sbt/pawel-sbt.plugin.zsh: 
+      path: shell/sbt.zsh
+      force: true
+      create: true
