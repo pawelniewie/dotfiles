@@ -1,0 +1,27 @@
+[user]
+	name = Pawel Niewiadomski
+	email = 11110000b@gmail.com
+	signingkey = F9B2BA7D
+[push]
+	default = simple
+[core]
+	autocrlf = input
+	editor = subl -n -w
+	excludesfile = /Users/pawel/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	gpgsign = false
+[merge]
+	ff = no
+[pull]
+	ff = yes
+[alias]
+	# https://hackernoon.com/lesser-known-git-commands-151a1918a60#.kts0boqp7
+	commend = commit --amend --no-edit
+	it = !git init && git commit -m “root” --allow-empty
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
