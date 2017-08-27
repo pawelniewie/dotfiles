@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# source from https://samsaffron.com/archive/2015/03/31/debugging-memory-leaks-in-ruby
+require 'json'
+class Analyzer
+  def initialize(filename)
+    @filename = filename
+  end
+
+  def analyze(generation)
+    data = []
+    File.open(@filename) do |f|
+      f.each_line do |line|
+        parsed = JSON.parse(line)
+        data << parsed if parsed["generation"] == generation
+      end
+    end
+    data.group_by { |row| "#{row["file"]}:#{row["line"]}" }
+      .sort { |a, b| b[1].count <=> a[1].count }
+      .each do |k, v|
+      puts "#{k} * #{v.count}"
+    end
+  end
+end
+
+if ARGV.size < 2
+  puts "Missing arguments:"
+  puts "#{__FILE__} path_to_dump generation"
+  exit
+end
+
+Analyzer.new(ARGV[0]).analyze(ARGV[1].to_i)

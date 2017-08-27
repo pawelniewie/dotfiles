@@ -11,6 +11,12 @@
     ~/.oh-my-zsh: oh-my-zsh
     ~/.gitignore_global: gitignore_global
     ~/.gitconfig: gitconfig
+    ~/.spring.rb: spring.rb
+    ~/.bin/catmf: mftools/catmf
+    ~/.bin/viewmf: mftools/viewmf
+    ~/.bin/diffmf: mftools/diffmf
+    ~/.bin/jsonmf: mftools/jsonmf
 
 - shell:
+  - mkdir -p ~/Development ~/.bin
   - [git submodule update --init --recursive, Installing submodules]

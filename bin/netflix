@@ -1,0 +1,6 @@
+#!/bin/bash
+set -x
+
+networksetup -setsocksfirewallproxy Wi-Fi localhost 9999
+ssh -c arcfour128 -2nNTxD 9999 deployer@teamstatus.tv
+networksetup -setsocksfirewallproxystate Wi-Fi off

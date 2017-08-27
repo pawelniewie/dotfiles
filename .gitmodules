@@ -4,3 +4,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "mftools"]
+	path = mftools
+	url = https://bitbucket.org/atlassianlabs/mftools.git

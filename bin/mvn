@@ -1,0 +1,286 @@
+#!/usr/bin/env bash
+
+declare -r default_mvn_version=3.0.5
+declare -r default_local_dir=${HOME}/.mvnvm
+declare mvn_version user_uri user_download_url mirror_download_url archive_download_url binaries_archive_download_url older_binaries_archive_download_url download_file download_old_file local_dir
+declare -a mvn_arguments
+
+echoerr () { [[ -z $quiet ]] && echo "[MVNVM]" "$@" >&2; }
+debug()    { [[ -n $debug ]] && echoerr "$@"; }
+
+# process properties for output settings
+for arg in "$@"; do
+  case $arg in
+    -q|--quiet) quiet=true ;;
+    -d|--debug) debug=true ;;
+    *) ;;
+  esac
+done
+
+addMvnArgument() {
+  debug "add mvn_argument: $1"
+  mvn_arguments=( "${mvn_arguments[@]}" "$1" )
+}
+
+read_properties()
+{
+  file="$1"
+  while IFS="=" read -r key value; do
+    case "$key" in
+      "local_dir") local_dir="$value" ;;
+      "mvn_version") mvn_version="$value" ;;
+      "user_uri") user_uri="$value" ;;
+    esac
+  done < "$file"
+}
+
+process_user_defaults()
+{
+  if [[ -f ~/.mvnvm.properties ]]; then
+    read_properties ~/.mvnvm.properties
+  fi
+}
+
+process_project()
+{
+  dir="`pwd`"
+  found=0
+
+  # traverse the directory structure up to root, trying to find a mvnvm.properties file
+  while : 
+  do
+    if [[ -f "$dir/mvnvm.properties" ]]; then
+      read_properties "$dir/mvnvm.properties"
+      found=1
+      debug "Found mvnvm.properties file at $dir"
+      break
+    fi
+    
+    if [[ "$dir" == '/' ]]; then
+      break
+    fi
+
+    dir=`dirname "$dir"`
+  done
+
+  if [[ ${found} -eq 0 ]]; then
+    if project_mvn_version="$(ruby <<"EOR"
+#!/usr/bin/ruby -w
+
+require 'rexml/document'
+include REXML
+
+pomfile = ARGV.concat( ['pom.xml'] )[0]
+
+if !File.file?(pomfile)
+  exit 5
+end
+
+xmldoc = Document.new(File.new(pomfile))
+
+enforcerVersion = XPath.first(xmldoc, '/project/build/plugins/plugin[artifactId="maven-enforcer-plugin"]//configuration/rules/requireMavenVersion/version')
+
+if enforcerVersion
+  # A closed lower bound?
+  m = enforcerVersion.text.match(/\s*\[([\d\.]+)\s*,.*/)
+  if m
+    puts m[1]
+  # A specific numeric version?
+  elsif enforcerVersion.text.match(/^[\d\.]+$/)
+    puts enforcerVersion.text
+  else
+    exit 5
+  end
+else
+  prereq = XPath.first(xmldoc, '/project/prerequisites/maven')
+  if prereq
+    puts prereq.text
+  else
+    exit 5
+  end
+end
+EOR
+)"; then
+    mvn_version="$project_mvn_version"
+  fi
+fi
+}
+
+process_arguments() 
+{
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --apache-mirror) user_uri="$2" && shift 2 && debug "set user_uri: ${user_uri}" ;;
+      --mvn-version) mvn_version="$2" && shift 2 && debug "set mvn_version: ${mvn_version}" ;;
+      -d|--debug) shift ;;
+      -q|--quiet) shift ;;
+      *) addMvnArgument "$1" && shift ;;
+    esac
+  done
+}
+
+process_defaults()
+{
+  user_uri=""
+  mvn_version=${default_mvn_version}
+  local_dir=${default_local_dir}
+}
+
+make_url()
+{
+  uri="$1"
+  version="$2"
+  version_regex="([0-9]+)" 
+  [[ $version =~ ${version_regex} ]]
+  major="${BASH_REMATCH[1]}"
+  download_file="apache-maven-${version}-bin.zip"
+  download_old_file="maven-${version}-bin.zip"
+  download_path_url="maven/maven-${major}/${version}/binaries/${download_file}"
+
+  # If the user has provided a URI, append the artefacts download url to it
+  if [ -z "$uri" ]; then
+    user_download_url=""
+  else
+    user_download_url="${uri}/${download_path_url}"
+  fi
+
+  apache_archive_url="https://archive.apache.org/dist"
+  apache_binaries_archive_url="${apache_archive_url}/maven/binaries"
+
+  # archive url is always available, so set that
+  archive_download_url="${apache_archive_url}/${download_path_url}"
+  # but some old versions are only available at archived binaries path
+  binaries_archive_download_url="${apache_binaries_archive_url}/${download_file}"
+  # some older versions of maven use an even different url
+  older_binaries_archive_download_url="${apache_binaries_archive_url}/${download_old_file}"
+
+  # instead of always using archive url, use the recommended apache mirror initially
+  if which curl >/dev/null; then
+    closer_text=`curl --silent --fail https://www.apache.org/dyn/closer.cgi?asjson=1`
+  elif which wget >/dev/null; then
+    closer_text=`wget -qO- https://www.apache.org/dyn/closer.cgi?asjson=1`
+  fi
+
+  if [ -z "$closer_text" ]; then
+    release_download_url=""
+  else
+    # extract the preferred mirror url from returned 
+    # use python if it is available, otherwise fall back to attempt scraping from text
+    if which python >/dev/null; then
+      temp=`echo $closer_text \
+        | python -c 'import sys, json; print json.load(sys.stdin)["preferred"]'`
+    else 
+      temp=`echo $closer_text \
+        | fgrep preferred \
+        | cut -f4 -d\"`
+    fi
+
+    release_download_url="${temp}${download_path_url}"
+  fi
+}
+
+execRunner () {
+  export MVN_HOME="$1"
+  export M2_HOME="${MVN_HOME}"
+  export MVN_OPT=""
+
+  debug "Will execute ${M2_HOME}/bin/mvn ${@:2}"
+  exec "${M2_HOME}/bin/mvn" "${@:2}"
+}
+
+prepareDirectories() {
+  if [[ ! -d "${local_dir}" ]]; then
+    mkdir -p "${local_dir}"
+  fi
+}
+
+function download() {
+  if [ -z "${2}" ]; then
+    return -1
+  fi
+
+  echoerr "${1}: ${2}"
+  if which curl >/dev/null; then
+    curl --silent --fail "${2}" --output "${3}"
+  elif which wget >/dev/null; then
+    wget --quiet -O "${3}" "${2}"
+  fi
+  return $?
+}
+
+downloadMaven() {
+  if [[ ! -f "${local_dir}/${download_file}" ]]; then
+    echoerr  "            downloading: ${download_file}"
+    echoerr  "                     to: ${local_dir}/${download_file}"
+    
+    if [ -z "$user_download_url" ]; then
+        # nothing
+        true
+    else
+        echoerr "                 trying: ${user_download_url}"
+    fi
+
+    urls[0]="${user_download_url}"
+    urls[1]="${release_download_url}"
+    urls[2]="${archive_download_url}"
+    urls[3]="${binaries_archive_download_url}"
+    urls[4]="${older_binaries_archive_download_url}"
+
+    names[0]="          user download"
+    names[1]="       preferred mirror"
+    names[2]="                archive"
+    names[3]="            old archive"
+    names[4]="     really old archive"
+
+    for i in "${!urls[@]}"
+    do
+      if download "${names[i]}" "${urls[i]}" "${local_dir}/${download_file}"; then
+        break
+      fi
+    done
+
+  fi
+}
+
+unzipMaven() {
+  if [[ ! -d "${local_dir}/apache-maven-${mvn_version}" && ! -d "${local_dir}/maven-${mvn_version}" ]]; then
+    if [[ -f "${local_dir}/${download_file}" ]]; then
+      echoerr "             extracting: ${local_dir}/apache-maven-${mvn_version}"
+      unzip -o -qq -d "${local_dir}" "${local_dir}/${download_file}"
+    else
+      echoerr "             extracting: ${local_dir}/maven-${mvn_version}"
+      unzip -o -qq -d "${local_dir}" "${local_dir}/${download_old_file}"
+    fi
+  fi
+}
+
+process_defaults
+process_project
+process_user_defaults
+process_arguments "$@"
+
+debug "maven version: ${mvn_version}"
+
+echoerr "Using maven: ${mvn_version}"
+
+if [[ ! -d "${local_dir}/apache-maven-${mvn_version}" && ! -d "${local_dir}/maven-${mvn_version}" ]]; then
+  debug "Maven ${mvn_version} not currently installed"
+
+  make_url "${user_uri}" "${mvn_version}"
+  prepareDirectories
+
+  downloadMaven
+  unzipMaven
+else
+  debug "Maven ${mvn_version} is installed"
+fi
+
+if [[ -d "${local_dir}/apache-maven-${mvn_version}" ]]; then
+  runpath="${local_dir}/apache-maven-${mvn_version}"
+else
+  runpath="${local_dir}/maven-${mvn_version}"
+fi
+
+debug "Executing maven from ${runpath}"
+
+execRunner "${runpath}" "${mvn_arguments[@]}"
