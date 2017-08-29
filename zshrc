@@ -71,14 +71,8 @@ else
    export EDITOR='sublw'
 fi
 
-if [ -d $HOME/Dropbox/Shell ]; then
-	for p in $HOME/Dropbox/Shell/*.zsh; do
-		source $p
-	done
-
-	if [ -d $HOME/Dropbox/Shell/bin ]; then
-		export PATH=$HOME/Dropbox/Shell/bin:$PATH
-	fi
+if [ -d $HOME/.bin ]; then
+	export PATH=$HOME/.bin:$PATH
 fi
 
 # Compilation flags
