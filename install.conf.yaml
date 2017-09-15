@@ -25,6 +25,7 @@
     ~/.bin/jsonmf: mftools/jsonmf
     ~/.bin/git-open: bin/git-open
     ~/.bin/ngrok: bin/ngrok
+    ~/.bin/watch-copy: bin/watch-copy
     ~/.oh-my-zsh/custom/plugins/pawel-aliases/pawel-aliases.plugin.zsh: 
       path: shell/aliases.zsh
       force: true

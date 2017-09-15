@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{__FILE__} [options] directory rsync_destination"
+
+  opts.on('-n', '--sourcename NAME', 'Source name') { |v| options[:source_name] = v }
+  opts.on('-h', '--sourcehost HOST', 'Source host') { |v| options[:source_host] = v }
+  opts.on('-p', '--sourceport PORT', 'Source port') { |v| options[:source_port] = v }
+  opts.on('-s') { |v| options[:sync] == v }
+
+end.parse!
+
+
+ignored = [
+	'\.git',
+	'\.idea',
+	'log',
+	'tmp',
+	'.*___',
+]
+
+def sync(from, to, ignored)
+	system("rsync", "-v", "-e", "ssh", "--delete", "--force", "-raz", *ignored.map { |ignore| ["--exclude", ignore] }.flatten, from, to) || exit(111)
+end
+
+if ARGV.length == 2
+	source_dir = ARGV[0]
+	destination = ARGV[1]
+
+	sync(source_dir, destination, ignored)
+
+	IO.popen(["fswatch", *ignored.map { |ignore| ["--exclude", ignore] }.flatten, source_dir]) do |io|
+		File.open("/tmp/watch-copy", "a") do |out|
+			out.write(io.gets)
+		end
+	end
+end
