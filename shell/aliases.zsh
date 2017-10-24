@@ -9,6 +9,8 @@ fi
 alias ia="open $1 -a /Applications/iA\ Writer.app/Contents/MacOS/iA\ Writer"
 
 alias gto='git open'
+alias gpf='git push --force-with-lease'
+alias gls='git smart-pull'
 
 alias ls='exa'
 
