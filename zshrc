@@ -41,7 +41,7 @@ ZSH_THEME="fino"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART="false"
 
 # Where to keep per directory history
 HISTORY_BASE="$HOME/Dropbox/.directory-history"
