@@ -22,6 +22,9 @@ alias ll='exa -l'      #long list
 alias ldot='exa -ld .*'
 alias lS='exa -bghHliS'
 alias laS='exa -baghHliS'
+
+# remove alias coming from rails plugin
+unalias rg
 	
 export NVM_DIR="/Volumes/Transcendence/Dotfiles/nvm"
 
