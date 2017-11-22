@@ -29,9 +29,6 @@
     ~/.oh-my-zsh/custom/plugins/pawel-aliases/pawel-aliases.plugin.zsh: 
       path: shell/aliases.zsh
       force: true
-    ~/.oh-my-zsh/custom/plugins/pawel-atlas/pawel-atlas.plugin.zsh: 
-      path: shell/atlas.zsh
-      force: true
     ~/.oh-my-zsh/custom/plugins/pawel-docker/pawel-docker.plugin.zsh: 
       path: shell/docker.zsh
       force: true
