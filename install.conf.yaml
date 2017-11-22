@@ -50,9 +50,6 @@
     ~/.oh-my-zsh/custom/plugins/pawel-homebrew-cask/pawel-homebrew-cask.plugin.zsh: 
       path: shell/homebrew-cask.zsh
       force: true
-    ~/.oh-my-zsh/custom/plugins/pawel-jenv/pawel-jenv.plugin.zsh: 
-      path: shell/jenv.zsh
-      force: true
     ~/.oh-my-zsh/custom/plugins/pawel-jira-qa/pawel-jira-qa.plugin.zsh: 
       path: shell/jira-qa.zsh
       force: true
