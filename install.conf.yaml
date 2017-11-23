@@ -47,8 +47,8 @@
     ~/.oh-my-zsh/custom/plugins/pawel-hh/pawel-hh.plugin.zsh: 
       path: shell/hh.zsh
       force: true
-    ~/.oh-my-zsh/custom/plugins/pawel-homebrew-cask/pawel-homebrew-cask.plugin.zsh: 
-      path: shell/homebrew-cask.zsh
+    ~/.oh-my-zsh/custom/plugins/pawel-brew/pawel-brew.plugin.zsh: 
+      path: shell/brew.zsh
       force: true
     ~/.oh-my-zsh/custom/plugins/pawel-jira-qa/pawel-jira-qa.plugin.zsh: 
       path: shell/jira-qa.zsh
