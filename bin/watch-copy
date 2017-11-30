@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+require 'pathname'
 
 options = {}
 OptionParser.new do |opts|
@@ -15,11 +16,16 @@ end.parse!
 
 
 ignored = [
-	'\.git',
-	'\.idea',
+	'.git',
+	'.idea',
+	'.env',
 	'log',
 	'tmp',
 	'.*___',
+	'node_modules',
+	'config/database.yml',
+	'public',
+	'target'
 ]
 
 def sync(from, to, ignored)
@@ -29,12 +35,25 @@ end
 if ARGV.length == 2
 	source_dir = ARGV[0]
 	destination = ARGV[1]
+	batch_marker = "NoOp"
 
 	sync(source_dir, destination, ignored)
 
-	IO.popen(["fswatch", *ignored.map { |ignore| ["--exclude", ignore] }.flatten, source_dir]) do |io|
+	fswatch = IO.popen(["fswatch", "-l", "0.3", "--batch-marker", *ignored.map { |ignore| ["--exclude", ignore] }.flatten, source_dir])
+	while true
+		new_files = []
+
+		while (new_file = fswatch.gets.chomp) != batch_marker
+			new_files << new_file
+		end
+
+		# destination_file = Pathname.new(source_file).relative_path_from(Pathname.new(File.absolute_path(source_dir))).to_s
+
+		# puts "#{source_file} -> #{destination_file}"
+		sync(source_dir, destination, ignored)
+
 		File.open("/tmp/watch-copy", "a") do |out|
-			out.write(io.gets)
+			out.write(new_files)
 		end
 	end
 end
