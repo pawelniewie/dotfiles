@@ -25,12 +25,10 @@
     ~/.bin/jsonmf: mftools/jsonmf
     ~/.bin/git-open: bin/git-open
     ~/.bin/ngrok: bin/ngrok
+    ~/.bin/sublw: bin/sublw
     ~/.bin/watch-copy: bin/watch-copy
     ~/.oh-my-zsh/custom/plugins/pawel-aliases/pawel-aliases.plugin.zsh: 
       path: shell/aliases.zsh
-      force: true
-    ~/.oh-my-zsh/custom/plugins/pawel-atlas/pawel-atlas.plugin.zsh: 
-      path: shell/atlas.zsh
       force: true
     ~/.oh-my-zsh/custom/plugins/pawel-docker/pawel-docker.plugin.zsh: 
       path: shell/docker.zsh
@@ -50,11 +48,8 @@
     ~/.oh-my-zsh/custom/plugins/pawel-hh/pawel-hh.plugin.zsh: 
       path: shell/hh.zsh
       force: true
-    ~/.oh-my-zsh/custom/plugins/pawel-homebrew-cask/pawel-homebrew-cask.plugin.zsh: 
-      path: shell/homebrew-cask.zsh
-      force: true
-    ~/.oh-my-zsh/custom/plugins/pawel-jenv/pawel-jenv.plugin.zsh: 
-      path: shell/jenv.zsh
+    ~/.oh-my-zsh/custom/plugins/pawel-brew/pawel-brew.plugin.zsh: 
+      path: shell/brew.zsh
       force: true
     ~/.oh-my-zsh/custom/plugins/pawel-jira-qa/pawel-jira-qa.plugin.zsh: 
       path: shell/jira-qa.zsh
