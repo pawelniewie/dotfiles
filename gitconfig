@@ -15,7 +15,7 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	gpgsign = false
+	gpgsign = true
 [merge]
 	ff = no
 [pull]
@@ -25,3 +25,5 @@
 	commend = commit --amend --no-edit
 	it = !git init && git commit -m “root” --allow-empty
 	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+[gpg]
+	program = /usr/bin/gpg2

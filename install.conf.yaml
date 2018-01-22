@@ -6,7 +6,7 @@
 - clean: ['~']
 
 - shell:
-  - mkdir -p ~/Development ~/.bin
+  - mkdir -p ~/Development ~/.local/bin
   - [git submodule update --init --recursive, Installing submodules]
 
 - link:
@@ -19,14 +19,14 @@
     ~/.gitignore_global: gitignore_global
     ~/.gitconfig: gitconfig
     ~/.spring.rb: spring.rb
-    ~/.bin/catmf: mftools/catmf
-    ~/.bin/viewmf: mftools/viewmf
-    ~/.bin/diffmf: mftools/diffmf
-    ~/.bin/jsonmf: mftools/jsonmf
-    ~/.bin/git-open: bin/git-open
-    ~/.bin/ngrok: bin/ngrok
-    ~/.bin/sublw: bin/sublw
-    ~/.bin/watch-copy: bin/watch-copy
+    ~/.local/bin/catmf: mftools/catmf
+    ~/.local/bin/viewmf: mftools/viewmf
+    ~/.local/bin/diffmf: mftools/diffmf
+    ~/.local/bin/jsonmf: mftools/jsonmf
+    ~/.local/bin/git-open: bin/git-open
+    ~/.local/bin/ngrok: bin/ngrok
+    ~/.local/bin/sublw: bin/sublw
+    ~/.local/bin/watch-copy: bin/watch-copy
     ~/.oh-my-zsh/custom/plugins/pawel-aliases/pawel-aliases.plugin.zsh: 
       path: shell/aliases.zsh
       force: true

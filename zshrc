@@ -71,8 +71,10 @@ else
    export EDITOR='sublw'
 fi
 
-if [ -d $HOME/.bin ]; then
-	export PATH=$HOME/.bin:$PATH
+if [[ "$OSTYPE" = darwin* ]]; then
+	if [ -d $HOME/.local/bin ]; then
+		export PATH=$HOME/.bin:$PATH
+	fi
 fi
 
 # Compilation flags
