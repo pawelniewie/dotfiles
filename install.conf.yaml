@@ -24,7 +24,6 @@
     ~/.local/bin/diffmf: mftools/diffmf
     ~/.local/bin/jsonmf: mftools/jsonmf
     ~/.local/bin/git-open: bin/git-open
-    ~/.local/bin/ngrok: bin/ngrok
     ~/.local/bin/sublw: bin/sublw
     ~/.local/bin/watch-copy: bin/watch-copy
     ~/.oh-my-zsh/custom/plugins/pawel-aliases/pawel-aliases.plugin.zsh: 
