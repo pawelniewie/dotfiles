@@ -50,7 +50,7 @@ HISTORY_BASE="$HOME/Dropbox/.directory-history"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras git-flow jira autojump brew brew-cask bundler capistrano colorize common-aliases cp copydir copyfile gem git-prompt heroku jira knife mosh osx pod rails rake rvm rbenv ruby sublime sudo terminalapp themes vagrant xcode ssh-agent tmux pawel-aliases pawel-docker pawel-go pawel-gpg-agent pawel-haskell pawel-hh pawel-brew pawel-jira-qa pawel-jira pawel-maven pawel-rbenv pawel-sbt)
+plugins=(git git-extras git-flow jira autojump brew brew-cask bundler capistrano colorize common-aliases cp copydir copyfile gem git-prompt heroku jira knife mosh osx pod rails rake rvm rbenv ruby sublime sudo terminalapp themes vagrant xcode ssh-agent tmux nvm pawel-aliases pawel-docker pawel-go pawel-gpg-agent pawel-haskell pawel-hh pawel-brew pawel-jira-qa pawel-jira pawel-maven pawel-rbenv pawel-sbt pawel-nvm)
 
 if [[ -n "$HOME/.ssh/*.pub" ]]; then
 	zstyle :omz:plugins:ssh-agent identities $(basename -s .pub $(ls $HOME/.ssh/*.pub))
@@ -91,9 +91,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'; fi

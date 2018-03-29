@@ -26,12 +26,6 @@ alias laS='exa -baghHliS'
 # remove alias coming from rails plugin
 unalias rg
 	
-export NVM_DIR="/Volumes/Transcendence/Dotfiles/nvm"
-
-if [ -f "/usr/local/opt/nvm/nvm.sh" ]; then
-	. "/usr/local/opt/nvm/nvm.sh"
-fi
-
 if [ -x "/usr/libexec/java_home" ]; then
 	export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 fi
