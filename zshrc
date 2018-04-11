@@ -50,7 +50,7 @@ HISTORY_BASE="$HOME/Dropbox/.directory-history"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras git-flow jira autojump brew brew-cask bundler capistrano colorize common-aliases cp copydir copyfile gem git-prompt heroku jira knife mosh osx pod rails rake rvm ruby sublime sudo terminalapp themes vagrant xcode ssh-agent tmux nvm pawel-aliases pawel-docker pawel-go pawel-gpg-agent pawel-haskell pawel-hh pawel-brew pawel-jira-qa pawel-jira pawel-maven pawel-sbt pawel-nvm)
+plugins=(git git-extras git-flow jira autojump brew brew-cask bundler capistrano colorize common-aliases cp copydir copyfile gem git-prompt heroku jira knife mosh osx pod rails rake rvm ruby sublime sudo terminalapp themes vagrant xcode ssh-agent tmux nvm pawel-aliases pawel-docker pawel-go pawel-gpg-agent pawel-haskell pawel-hh pawel-brew pawel-maven pawel-sbt pawel-nvm pawel-jira)
 
 if [[ -n "$HOME/.ssh/*.pub" ]]; then
 	zstyle :omz:plugins:ssh-agent identities $(basename -s .pub $(ls $HOME/.ssh/*.pub))
