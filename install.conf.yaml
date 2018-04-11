@@ -56,9 +56,6 @@
     ~/.oh-my-zsh/custom/plugins/pawel-maven/pawel-maven.plugin.zsh: 
       path: shell/maven.zsh
       force: true
-    ~/.oh-my-zsh/custom/plugins/pawel-sbt/pawel-sbt.plugin.zsh: 
-      path: shell/sbt.zsh
-      force: true
     ~/.oh-my-zsh/custom/plugins/pawel-nvm/pawel-nvm.plugin.zsh: 
       path: shell/nvm.zsh
       force: true
