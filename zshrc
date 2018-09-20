@@ -1,3 +1,5 @@
+fpath=(/usr/share/zsh/5.5.1/functions/ $fpath)
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 

@@ -29,3 +29,16 @@ unalias rg
 if [ -x "/usr/libexec/java_home" ]; then
 	export JAVA_HOME="$(/usr/libexec/java_home -v 9.0)"
 fi
+
+alias hcs='heroku config -r staging'
+alias hcp='heroku config -r production'
+alias hcrs='heroku config:remove -r staging'
+alias hcrp='heroku config:remove -r staging'
+alias hcss='heroku config:set -r staging'
+alias hcsp='heroku config:set -r production'
+
+alias hdss='heroku drains -r staging'
+alias hdsp='heroku drains -r production'
+
+alias hrs='heroku run -r staging'
+alias hrp='heroku run -r production'
