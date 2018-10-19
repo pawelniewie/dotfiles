@@ -40,5 +40,7 @@ alias hcsp='heroku config:set -r production'
 alias hdss='heroku drains -r staging'
 alias hdsp='heroku drains -r production'
 
-alias hrs='heroku run -r staging'
-alias hrp='heroku run -r production'
+alias hrus='heroku run -r staging'
+alias hrup='heroku run -r production'
+
+alias hli='heroku local -f ignore.Procfile'
