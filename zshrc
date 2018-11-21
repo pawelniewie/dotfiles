@@ -1,4 +1,4 @@
-fpath=(/usr/share/zsh/5.5.1/functions/ $fpath)
+fpath=(/usr/share/zsh/$(zsh --version | awk '{print $2}')/functions/ $fpath)
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -52,7 +52,7 @@ HISTORY_BASE="$HOME/Dropbox/.directory-history"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras git-flow jira autojump brew brew-cask bundler capistrano colorize common-aliases cp copydir copyfile gem git-prompt heroku jira knife mosh osx pod rails rake rvm ruby sublime sudo terminalapp themes vagrant xcode ssh-agent tmux nvm pawel-aliases pawel-docker pawel-go pawel-gpg-agent pawel-haskell pawel-hh pawel-brew pawel-maven pawel-sbt pawel-nvm pawel-jira)
+plugins=(autojump brew brew-cask bundler colorize common-aliases copydir copyfile cp dash docker docker-compose git git-extras git-prompt heroku jira mosh nvm osx pod rails rake ruby rvm ssh-agent sublime sudo themes xcode pawel-aliases pawel-brew pawel-docker pawel-go pawel-gpg-agent pawel-haskell pawel-hh pawel-jirapawel-maven pawel-nvm pawel-sbt)
 
 if [[ -n "$HOME/.ssh/*.pub" ]]; then
 	zstyle :omz:plugins:ssh-agent identities $(basename -s .pub $(ls $HOME/.ssh/*.pub))
