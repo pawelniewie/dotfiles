@@ -26,10 +26,6 @@ alias laS='exa -baghHliS'
 # remove alias coming from rails plugin
 unalias rg
 	
-if [ -x "/usr/libexec/java_home" ]; then
-	export JAVA_HOME="$(/usr/libexec/java_home -v 9.0)"
-fi
-
 alias hcs='heroku config -r staging'
 alias hcp='heroku config -r production'
 alias hcrs='heroku config:remove -r staging'
