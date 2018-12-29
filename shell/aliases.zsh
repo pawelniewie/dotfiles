@@ -6,6 +6,10 @@ if [ -d "$HOME/.cargo/bin" ]; then
 	export PATH="$PATH:$HOME/.cargo/bin"
 fi
 
+if [ -d "$HOME/.local/bin" ]; then
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+
 alias ia="open $1 -a /Applications/iA\ Writer.app/Contents/MacOS/iA\ Writer"
 
 alias gto='git open'
