@@ -26,6 +26,7 @@
     ~/.local/bin/git-open: bin/git-open
     ~/.local/bin/sublw: bin/sublw
     ~/.local/bin/watch-copy: bin/watch-copy
+    ~/.local/bin/lsix: bin/lsix
     ~/.oh-my-zsh/custom/plugins/pawel-aliases/pawel-aliases.plugin.zsh: 
       path: shell/aliases.zsh
       force: true
@@ -37,9 +38,6 @@
       force: true
     ~/.oh-my-zsh/custom/plugins/pawel-go/pawel-go.plugin.zsh: 
       path: shell/go.zsh
-      force: true
-    ~/.oh-my-zsh/custom/plugins/pawel-gpg-agent/pawel-gpg-agent.plugin.zsh: 
-      path: shell/gpg-agent.zsh
       force: true
     ~/.oh-my-zsh/custom/plugins/pawel-haskell/pawel-haskell.plugin.zsh: 
       path: shell/haskell.zsh
