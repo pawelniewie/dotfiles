@@ -31,7 +31,7 @@ alias laS='exa -baghHliS'
 unalias rg
 	
 if [ -x "/usr/libexec/java_home" ]; then
-	export JAVA_HOME="$(/usr/libexec/java_home -v 9.0)"
+	export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 fi
 
 alias hcs='heroku config -r staging'
