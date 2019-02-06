@@ -23,7 +23,6 @@
     ~/.local/bin/viewmf: mftools/viewmf
     ~/.local/bin/diffmf: mftools/diffmf
     ~/.local/bin/jsonmf: mftools/jsonmf
-    ~/.local/bin/git-open: bin/git-open
     ~/.local/bin/sublw: bin/sublw
     ~/.local/bin/watch-copy: bin/watch-copy
     ~/.local/bin/lsix: bin/lsix
@@ -56,4 +55,7 @@
       force: true
     ~/.oh-my-zsh/custom/plugins/pawel-nvm/pawel-nvm.plugin.zsh: 
       path: shell/nvm.zsh
+      force: true
+    ~/.oh-my-zsh/custom/plugins/git-open: 
+      path: git-open
       force: true

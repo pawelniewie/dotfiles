@@ -16,3 +16,6 @@
 [submodule "dotbot-brewfile"]
 	path = dotbot-brewfile
 	url = https://github.com/sobolevn/dotbot-brewfile.git
+[submodule "git-open"]
+	path = git-open
+	url = git@github.com:paulirish/git-open.git
