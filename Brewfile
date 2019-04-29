@@ -9,30 +9,43 @@ tap "petere/postgresql"
 tap "thoughtbot/formulae"
 tap "wagoodman/dive"
 tap "wercker/wercker"
+cask "java"
 brew "autoconf"
 brew "autojump"
 brew "automake"
+brew "awscli"
+brew "circleci"
+brew "cmake"
 brew "coreutils"
-brew "docker-compose"
+brew "defaultbrowser"
+brew "docker-compose", link: false
 brew "exa"
+brew "ffmpeg"
 brew "git"
 brew "git-crypt"
+brew "gnu-sed"
 brew "hstr"
 brew "htop"
 brew "httpie"
-brew "hyper"
+brew "libtool"
+brew "imagemagick"
+brew "imagemagick@6"
 brew "jq"
 brew "libksba"
-brew "libtool"
 brew "mas"
+brew "maven"
+brew "mysql"
+brew "node@8"
 brew "openssl@1.1"
 brew "pkg-config"
 brew "postgresql"
 brew "redis"
 brew "ripgrep"
 brew "terraform"
+brew "tldr"
 brew "wget"
 brew "yarn"
+brew "atlassian/tap/atlassian-plugin-sdk"
 brew "heroku/brew/heroku"
 brew "wagoodman/dive/dive"
 cask "1password"
@@ -48,40 +61,53 @@ cask "docker"
 cask "dropbox"
 cask "evernote"
 cask "firefox"
+cask "font-fira-code"
+cask "font-opendyslexic"
 cask "google-chrome"
 cask "google-cloud-sdk"
 cask "gpg-suite"
-cask "java"
+cask "handbrake"
 cask "jetbrains-toolbox"
 cask "kindle"
 cask "minecraft"
+cask "mongodb-compass"
 cask "ngrok"
 cask "origin"
 cask "osirix-quicklook"
 cask "qnapi"
+cask "quicklook-json"
 cask "quitter"
 cask "rocket"
 cask "signal"
 cask "slack"
+cask "soulver"
 cask "spectacle"
 cask "steam"
+cask "sublime-merge"
 cask "sublime-text"
 cask "transmission"
+cask "tripmode"
 cask "tunnelblick"
 cask "tuntap"
+cask "virtualbox"
+cask "virtualbox-extension-pack"
 cask "vlc"
-mas "Day One", id: 1055511498
-mas "Horo", id: 1437226581
-mas "hr", id: 976253191
-mas "iA Writer", id: 775737590
-mas "Keynote", id: 409183694
-mas "Lungo", id: 1263070803
-mas "Magnet", id: 441258766
-mas "MindNode", id: 992076693
-mas "NordVPN IKE", id: 1116599239
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Pixelmator", id: 407963104
-mas "Sip", id: 507257563
-mas "Things3", id: 904280696
-mas "TweetDeck", id: 485812721
+cask "zoomus"
+mas "com.apple.iWork.Keynote", id: 409183694
+mas "com.apple.iWork.Numbers", id: 409203825
+mas "com.apple.iWork.Pages", id: 409201541
+mas "com.bloombuilt.dayone-mac", id: 1055511498
+mas "com.camlittle.DefaultBrowser", id: 1055264211
+mas "com.crowdcafe.windowmagnet", id: 441258766
+mas "com.culturedcode.ThingsMac", id: 904280696
+mas "com.ideasoncanvas.mindnode.macos", id: 1289197285
+mas "com.jah.DesktopMoon", id: 1072395462
+mas "com.nordvpn.osx-apple", id: 1116599239
+mas "com.ookla.speedtest-macos", id: 1153157709
+mas "com.pixelmatorteam.pixelmator", id: 407963104
+mas "com.ruiaureliano.Sip", id: 507257563
+mas "com.sindresorhus.Lungo", id: 1263070803
+mas "com.twitter.TweetDeck", id: 485812721
+mas "com.zerowhitedesigns.hr", id: 976253191
+mas "net.matthewpalmer.Horo", id: 1437226581
+mas "pro.writer.mac", id: 775737590
