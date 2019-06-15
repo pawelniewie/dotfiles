@@ -1,4 +1,5 @@
 tap "atlassian/tap"
+tap "caskroom/versions"
 tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -9,7 +10,6 @@ tap "petere/postgresql"
 tap "thoughtbot/formulae"
 tap "wagoodman/dive"
 tap "wercker/wercker"
-cask "java"
 brew "autoconf"
 brew "autojump"
 brew "automake"
@@ -50,7 +50,6 @@ brew "heroku/brew/heroku"
 brew "wagoodman/dive/dive"
 cask "1password"
 cask "adobe-acrobat-reader"
-cask "alfred"
 cask "appcleaner"
 cask "bartender"
 cask "battle-net"
@@ -67,6 +66,7 @@ cask "google-chrome"
 cask "google-cloud-sdk"
 cask "gpg-suite"
 cask "handbrake"
+cask "java"
 cask "jetbrains-toolbox"
 cask "kindle"
 cask "minecraft"
@@ -80,7 +80,6 @@ cask "quitter"
 cask "rocket"
 cask "signal"
 cask "slack"
-cask "soulver"
 cask "spectacle"
 cask "steam"
 cask "sublime-merge"
@@ -93,21 +92,23 @@ cask "virtualbox"
 cask "virtualbox-extension-pack"
 cask "vlc"
 cask "zoomus"
-mas "com.apple.iWork.Keynote", id: 409183694
-mas "com.apple.iWork.Numbers", id: 409203825
-mas "com.apple.iWork.Pages", id: 409201541
-mas "com.bloombuilt.dayone-mac", id: 1055511498
-mas "com.camlittle.DefaultBrowser", id: 1055264211
-mas "com.crowdcafe.windowmagnet", id: 441258766
-mas "com.culturedcode.ThingsMac", id: 904280696
-mas "com.ideasoncanvas.mindnode.macos", id: 1289197285
-mas "com.jah.DesktopMoon", id: 1072395462
-mas "com.nordvpn.osx-apple", id: 1116599239
-mas "com.ookla.speedtest-macos", id: 1153157709
-mas "com.pixelmatorteam.pixelmator", id: 407963104
-mas "com.ruiaureliano.Sip", id: 507257563
-mas "com.sindresorhus.Lungo", id: 1263070803
-mas "com.twitter.TweetDeck", id: 485812721
-mas "com.zerowhitedesigns.hr", id: 976253191
-mas "net.matthewpalmer.Horo", id: 1437226581
-mas "pro.writer.mac", id: 775737590
+cask "caskroom/versions/alfred3"
+cask "caskroom/versions/firefox-developer-edition"
+cask "caskroom/versions/soulver2"
+mas "Day One", id: 1055511498
+mas "Default Browser", id: 1055264211
+mas "DesktopMoon", id: 1072395462
+mas "Horo", id: 1437226581
+mas "iA Writer", id: 775737590
+mas "Keynote", id: 409183694
+mas "Lungo", id: 1263070803
+mas "Magnet", id: 441258766
+mas "MindNode", id: 1289197285
+mas "NordVPN IKE", id: 1116599239
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Pixelmator", id: 407963104
+mas "Sip", id: 507257563
+mas "Speedtest", id: 1153157709
+mas "Things", id: 904280696
+mas "TweetDeck", id: 485812721
