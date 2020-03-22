@@ -104,3 +104,5 @@ if [ -f '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion
 [ -d "$HOME/.rvm/bin" ] && export PATH="$PATH:$HOME/.rvm/bin"
 
 [ -d "$HOME/.yarn/bin" ] && export PATH="$HOME/.yarn/bin:$PATH"
+
+[ -f "$HOME/Library/Preferences/org.dystroy.broot/launcher/bash/br" ] && source "$HOME/Library/Preferences/org.dystroy.broot/launcher/bash/br"
