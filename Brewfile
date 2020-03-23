@@ -12,6 +12,7 @@ tap "petere/postgresql"
 tap "thoughtbot/formulae"
 tap "wagoodman/dive"
 tap "wercker/wercker"
+tap "wpengine/wpe-cli"
 brew "autoconf"
 brew "autojump"
 brew "automake"
@@ -56,6 +57,7 @@ brew "atlassian/tap/atlassian-plugin-sdk"
 brew "cloudflare/cloudflare/cloudflared"
 brew "heroku/brew/heroku"
 brew "wagoodman/dive/dive"
+brew "wpengine/wpe-cli/wpe-cli"
 cask "1password"
 cask "adobe-acrobat-reader"
 cask "alfred"
@@ -75,6 +77,7 @@ cask "evernote"
 cask "firefox-developer-edition"
 cask "font-fira-code"
 cask "font-opendyslexic"
+cask "github"
 cask "gog-galaxy"
 cask "google-chrome"
 cask "google-cloud-sdk"
@@ -84,6 +87,7 @@ cask "handbrake"
 cask "intel-power-gadget"
 cask "java"
 cask "jetbrains-toolbox"
+cask "karabiner-elements"
 cask "keybase"
 cask "kindle"
 cask "logitech-control-center"
@@ -106,6 +110,7 @@ cask "skype"
 cask "slack"
 cask "soulver2"
 cask "spectacle"
+cask "spotify"
 cask "steam"
 cask "sublime-merge"
 cask "sublime-text"
@@ -119,15 +124,17 @@ cask "virtualbox-extension-pack"
 cask "vlc"
 cask "zoomus"
 mas "Day One", id: 1055511498
-mas "Default Browser", id: 1055264211
 mas "DesktopMoon", id: 1072395462
 mas "Evernote Web Clipper", id: 1481669779
+mas "GarageBand", id: 682658836
 mas "Grammarly for Safari", id: 1462114288
 mas "Horo", id: 1437226581
 mas "iA Writer", id: 775737590
+mas "iMovie", id: 408981434
 mas "Jira", id: 1475897096
 mas "Keynote", id: 409183694
 mas "Lungo", id: 1263070803
+mas "Letterpress", id: 1070543522
 mas "Magnet", id: 441258766
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft Outlook", id: 985367838
