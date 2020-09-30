@@ -40,4 +40,11 @@ alias hdsp='heroku drains -r production'
 alias hrus='heroku run -r staging'
 alias hrup='heroku run -r production'
 
-alias hli='heroku local -f ignore.Procfile'
+hli() {
+	if [ "$1" != "" ]
+	then
+		heroku local $1
+	else
+		heroku local web,workers,ngrok,webpacker
+	fi
+}
