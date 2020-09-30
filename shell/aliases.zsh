@@ -22,9 +22,6 @@ alias ll='exa -l'      #long list
 alias ldot='exa -ld .*'
 alias lS='exa -bghHliS'
 alias laS='exa -baghHliS'
-
-# remove alias coming from rails plugin
-unalias rg
 	
 if [ -x "/usr/libexec/java_home" ]; then
 	export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
