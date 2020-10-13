@@ -47,9 +47,6 @@
     ~/.oh-my-zsh/custom/plugins/pawel-brew/pawel-brew.plugin.zsh: 
       path: shell/brew.zsh
       force: true
-    ~/.oh-my-zsh/custom/plugins/pawel-jira/pawel-jira.plugin.zsh: 
-      path: shell/jira.zsh
-      force: true
     ~/.oh-my-zsh/custom/plugins/pawel-maven/pawel-maven.plugin.zsh: 
       path: shell/maven.zsh
       force: true
