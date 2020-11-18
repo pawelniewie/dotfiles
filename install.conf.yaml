@@ -59,3 +59,6 @@
     ~/.oh-my-zsh/custom/plugins/git-open: 
       path: git-open
       force: true
+    ~/.config/karabiner: 
+      path: karabiner
+      force: true
