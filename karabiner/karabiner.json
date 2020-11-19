@@ -47,7 +47,9 @@
                                 "pointing_button": "button4"
                             },
                             "to": {
-                                "key_code": "page_down"
+                                "mouse_key": {
+                                    "vertical_wheel": 64
+                                }
                             }
                         },
                         {
@@ -55,7 +57,9 @@
                                 "pointing_button": "button5"
                             },
                             "to": {
-                                "key_code": "page_up"
+                                "mouse_key": {
+                                    "vertical_wheel": -64
+                                }
                             }
                         }
                     ]
